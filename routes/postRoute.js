@@ -1,8 +1,8 @@
 "use strict";
 const express = require("express");
 const { upload } = require("../helpers/fileHelper");
-const { singleFileUpload } = require("../controller/fileUploadController");
+const { fileUpload } = require("../controller/fileUploadController");
 const postRoute = express.Router();
 
-postRoute.post("/singleFileUpload", upload.single("file"), singleFileUpload);
+postRoute.post("/fileUpload", upload.array("files"), fileUpload);
 module.exports = { routes: postRoute };
