@@ -18,6 +18,9 @@ const fileUpload = async (req, res, next) => {
     res.status(400).send(error.message);
   }
 };
+const welcome = (req, res, next) => {
+  res.status(200).send("welcome to my endpoint");
+};
 
 const fileSizeFormatter = (bytes, decimal) => {
   if (bytes === 0) {
@@ -31,4 +34,4 @@ const fileSizeFormatter = (bytes, decimal) => {
   );
 };
 
-module.exports = { fileUpload };
+module.exports = { fileUpload, welcome };
