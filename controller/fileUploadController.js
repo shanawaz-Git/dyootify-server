@@ -10,7 +10,8 @@ const fileUpload = async (req, res, next) => {
         fileType: element.mimetype,
         fileSize: fileSizeFormatter(element.size, 2),
       });
-      file.save();
+      //  file.save();
+      console.log("working bro");
     });
     res.status(201).send("File Uploaded Successfully");
   } catch (error) {
