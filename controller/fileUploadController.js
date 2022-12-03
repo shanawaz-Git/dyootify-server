@@ -3,31 +3,20 @@ const fileUploadSchema = require("../modelSchema/fileUploadSchema");
 
 const fileUpload = async (req, res, next) => {
   try {
-    // await req.files.forEach((element) => {
-    // const file = new fileUploadSchema({
-    //   fileName: element.originalname,
-    //   filePath: element.path,
-    //   fileType: element.mimetype,
-    //   fileSize: fileSizeFormatter(element.size, 2),
-    // });
-    const file = new fileUploadSchema({
-      fileName: "shanawaz",
-      filePath: "element.path",
-      fileType: "element.mimetype",
-      fileSize: "fileSizeFormatter(element.size, 2)",
+    await req.files.forEach((element) => {
+      const file = new fileUploadSchema({
+        fileName: element.originalname,
+        filePath: element.path,
+        fileType: element.mimetype,
+        fileSize: fileSizeFormatter(element.size, 2),
+      });
+      file.save();
+      console.log("working bro");
     });
-    file.save();
-    console.log("working bro");
-    // }
-    // );
     res.status(201).send("File Uploaded Successfully");
   } catch (error) {
     res.status(400).send(error.message);
   }
-};
-const welcome = (req, res, next) => {
-  console.log("hello");
-  res.status(200).send("welcome to my endpoint");
 };
 
 const fileSizeFormatter = (bytes, decimal) => {
@@ -42,4 +31,4 @@ const fileSizeFormatter = (bytes, decimal) => {
   );
 };
 
-module.exports = { fileUpload, welcome };
+module.exports = { fileUpload };

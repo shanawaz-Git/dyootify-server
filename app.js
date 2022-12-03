@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/post", postRoute.routes);
-app.use("/get", getRoute);
+app.use("/", getRoute.routes);
 
 app.listen(PORT, () => {
   console.log(`the server is running in localhost:${PORT}`);

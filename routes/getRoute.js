@@ -1,3 +1,6 @@
+"use Strict";
 const express = require("express");
+const { open } = require("../controller/getPoints");
 const getRoute = express.Router();
-module.exports = getRoute;
+getRoute.get("/", open);
+module.exports = { routes: getRoute };
