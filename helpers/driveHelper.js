@@ -1,7 +1,6 @@
 const { google } = require("googleapis");
 const path = require("path");
-const KEYFILEPATH =
-  "C:\\Users\\HP\\Downloads\\music-backend-project-370510-44db7f5fb1bc.json";
+const KEYFILEPATH = "music-backend-project-370510-44db7f5fb1bc.json";
 const SCOPES = ["https://www.googleapis.com/auth/drive"];
 
 const auth = new google.auth.GoogleAuth({
