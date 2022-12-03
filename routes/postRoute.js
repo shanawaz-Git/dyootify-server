@@ -1,10 +1,11 @@
 "use strict";
 const express = require("express");
-const { upload } = require("../helpers/fileHelper");
+// const { upload } = require("../helpers/fileHelper");
 const { fileUpload } = require("../controller/fileUploadController");
 const { welcome } = require("../controller/postPoints");
+const multer = require("multer");
 const postRoute = express.Router();
-
-postRoute.post("/fileUpload", upload.array("files"), fileUpload);
+const upload = multer();
+postRoute.post("/fileUpload", upload.any(), fileUpload);
 postRoute.post("/hello", welcome);
 module.exports = { routes: postRoute };

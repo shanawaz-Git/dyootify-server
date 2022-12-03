@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "music-backend-project-370510",
+  "private_key_id": "44db7f5fb1bc056bba81fef224c8d0c78f834b2c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC72/x0dOxKZt7q\nV5sBHEvj9CAHAuGaVdqVZQxpV4KKx/VLN0MNdfmRvioZGAS49U8QMc0XtL9Fjdto\naiLqU+qnRuljEcdDRqhoBToTDhnacLXFWhVdVAxc+GUv5Ba1G67nG5CvePrjHxWX\nbsNJogFXwk23INpAXmHFGu90VWNiwIng/0F07lkqI5oDez7kwczM+MMabhTl7PDa\nDAtGGczQAVWOUhYlxTCMoiSlc7YzmPv9lxJfD45t7oKg1p/zh9waMGeHfXa8xJPl\nHzUuHSwKq4WGjlQAvIB2Hi+dxZO86PwVN9ZoGn4RfADz2iEfsLZJkFITtmAywmYw\ny7pQkfuPAgMBAAECggEAKvFFi0VzAirzx/PQrfdO7cPPUmr5MTNw7PeVV7s2Tw0Y\naGIwhLI0I3mp2+Sep70DnrsTm9ioZHjh78NbSd9241gVX50fxKQxON4BAXwWstVS\n59MI0TW2QcZSMxlbi3jRiWjGsSXhi+t+HwilwX4z+mCjLTpoSZCJnuniVOB0AI2H\nb95QIwl2619k+W9CwmN/rjwgYb1NAkHl52NSD8nT6S5OpZ4AySPIDAyDAGsCQaZl\noTJTZ56VmIpkX9gEPMgMC0dvzZZibFKfgF3dhGaxJpHO28S56076DM8bDvCX72rV\nQ0lJQ5K5fTt+y41Mf9bbwvdkdJlPm/ofnIWKtqr6MQKBgQD83Egsbam3myWj+q4+\nZYrJtWz9+g985wr7FbGhv2++Ob7Gg4IqWqRn1BNihadQV+aZfzaotBA+cEQGgxUN\n1NyNCGLhoj8TlQJIp5yyxwRSYYRmM5kVomREFbQN9IQvpnN/LMsbsSgnDW/FxVmv\nfiCF3cWNbUvIizk2kTn7PIW39wKBgQC+MRkIQeenghFicg+OvvvrZSFVXwVLZXLD\nfQFxWcISOgN4vkeVaNxO2ZjOLDRRRcl3XYz8Y56fhItRNBV5FsCe+AriwMHHd/zg\nKkMYvbsyZVjb71t4o5r6Br/iBgRJCWhNHB/kEhzsRA+Ue/7hIUZxXBF0jqroxIoQ\nh1XhzFVjKQKBgQDe5KbSUxCqAp8Zfx4dbpD64WxkLQt+BIQPdL4SYJf1zR04DDCv\neRs3UyCLVll4XyOs5xCdgaxX/cpZGy9x89M+lsfjMYv8jPtoZCejB//tRnzZQl6N\nTYqo4aDINGRZRJbG4gtgK7fDRPrkEOTP55RvrGA6HMAS1XbnfPjpWB5fXQKBgACR\nnQWNTOgPV4X32VwP7ijyEHt04Ussbn9vLEXugsoTKld+GjC0M5R4yiAzuaRUlRmq\nSfWnRp4rg08m3LmT+9d93mp3MR0rmrIA7lpwltK7wtxFhvyBYMFGq+Q9KF4fjRRN\n9Tp1Y2jBe1pyVHzP4KoOIG88zf4MOG18OiGGvuqhAoGBAJgiyH48pUxW9p6lVJ0X\nVBjA666JJ8oLpO7LXQZWQFakGOCxnoMNPAOicmTXBr537hBHhqgP6jFBYzOOg+Sp\n1jXqv4AHKyolRFW9h/pbHlJgi4CaHzWLn+EuMQSritLAIzeLDUKU+CAAr6V0A/Ga\nrDnpu+P4YhO6inU6GWn1nArC\n-----END PRIVATE KEY-----\n",
+  "client_email": "googleserviceaccount001@music-backend-project-370510.iam.gserviceaccount.com",
+  "client_id": "103658099683424921805",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googleserviceaccount001%40music-backend-project-370510.iam.gserviceaccount.com"
+}

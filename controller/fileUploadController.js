@@ -1,23 +1,47 @@
 "use strict";
 const fileUploadSchema = require("../modelSchema/fileUploadSchema");
+const { auth } = require("../helpers/driveHelper");
+const fs = require("fs");
 
 const fileUpload = async (req, res, next) => {
   try {
-    await req.files.forEach((element) => {
-      const file = new fileUploadSchema({
-        fileName: element.originalname,
-        filePath: element.path,
-        fileType: element.mimetype,
-        fileSize: fileSizeFormatter(element.size, 2),
-      });
-      file.save();
-      console.log("working bro");
-    });
-    res.status(201).send("File Uploaded Successfully");
-  } catch (error) {
-    res.status(400).send(error.message);
+    const { body, files } = req;
+    const output = [];
+    for (let f = 0; f < files.length; f += 1) {
+      output.push(await uploadFile(auth, files[f], fileUploadSchema));
+    }
+    console.log(body);
+    res.status(200).send(output);
+  } catch (f) {
+    res.send(f.message);
   }
 };
+
+async function uploadFile(auth, fileObject, schema) {
+  const stream = require("stream");
+  const { google } = require("googleapis");
+  const bufferStream = new stream.PassThrough();
+  bufferStream.end(fileObject.buffer);
+  const { data } = await google.drive({ version: "v3", auth }).files.create({
+    media: {
+      mimeType: fileObject.mimeType,
+      body: bufferStream,
+    },
+    requestBody: {
+      name: fileObject.originalname,
+      parents: ["1VjUyCf_PxELdzaCL_Qz1RGkxDWN8I_oF"],
+    },
+    fields: "id,name",
+  });
+  const file = new schema({
+    fileName: fileObject.originalname,
+    driveId: data.id,
+    fileType: fileObject.mimetype,
+    fileSize: fileSizeFormatter(fileObject.size, 2),
+  });
+  file.save();
+  return file;
+}
 
 const fileSizeFormatter = (bytes, decimal) => {
   if (bytes === 0) {

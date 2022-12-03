@@ -8,7 +8,7 @@ const fileSchema = new schema(
       type: String,
       required: true,
     },
-    filePath: {
+    driveId: {
       type: String,
       required: true,
     },
