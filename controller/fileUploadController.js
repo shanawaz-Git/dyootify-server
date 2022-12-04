@@ -53,12 +53,17 @@ const validateOTP = (otp) => {
   const ISTTime = new Date(
     currentTime.getTime() + (ISTOffset + offset) * 60000
   );
+  var dateIST = ISTTime.getDate();
+  var monthIST = ISTTime.getMonth() + 1;
   var hoursIST = ISTTime.getHours();
   var minutesIST = ISTTime.getMinutes();
-  if (minutesIST > 0 && minutesIST <= 15) var value = hoursIST * 1234;
-  else if (minutesIST > 15 && minutesIST <= 30) var value = hoursIST * 2345;
-  else if (minutesIST > 30 && minutesIST <= 45) var value = hoursIST * 3456;
-  else var value = hoursIST * 4567;
+  if (minutesIST > 0 && minutesIST <= 15)
+    var value = hoursIST * 12 * dateIST * monthIST;
+  else if (minutesIST > 15 && minutesIST <= 30)
+    var value = hoursIST * 23 * dateIST * monthIST;
+  else if (minutesIST > 30 && minutesIST <= 45)
+    var value = hoursIST * 34 * dateIST * monthIST;
+  else var value = hoursIST * 45 * dateIST * monthIST;
   if (otp == value) return true;
   return false;
 };
