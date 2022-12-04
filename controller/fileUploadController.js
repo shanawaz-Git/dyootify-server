@@ -1,7 +1,8 @@
 "use strict";
+
 const fileUploadSchema = require("../modelSchema/fileUploadSchema");
 const { auth } = require("../helpers/driveHelper");
-const fs = require("fs");
+const jsmediatags = require("jsmediatags");
 
 const fileUpload = async (req, res, next) => {
   if (validateOTP(req.body.otp)) {
@@ -11,6 +12,7 @@ const fileUpload = async (req, res, next) => {
       for (let f = 0; f < files.length; f += 1) {
         output.push(await uploadFile(auth, files[f], fileUploadSchema));
       }
+      console.log(output);
       res.status(200).send(output);
     } catch (f) {
       res.send(f.message);
@@ -36,8 +38,14 @@ async function uploadFile(auth, fileObject, schema) {
     },
     fields: "id,name",
   });
+  let musicData = await awaitableJsmediatags(fileObject.buffer);
+
   const file = new schema({
     fileName: fileObject.originalname,
+    fileTitle: musicData.tags.title,
+    fileAlbum: musicData.tags.album,
+    fileArtist: musicData.tags.artist,
+    filePerformer: musicData.tags.TPE1.data,
     driveId: data.id,
     driveLink: "https://drive.google.com/uc?export=download&id=" + data.id,
     fileType: fileObject.mimetype,
@@ -45,6 +53,19 @@ async function uploadFile(auth, fileObject, schema) {
   });
   file.save();
   return file;
+}
+
+function awaitableJsmediatags(filename) {
+  return new Promise(function (resolve, reject) {
+    jsmediatags.read(filename, {
+      onSuccess: function (tag) {
+        resolve(tag);
+      },
+      onError: function (error) {
+        reject(error);
+      },
+    });
+  });
 }
 
 const validateOTP = (otp) => {

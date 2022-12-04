@@ -8,6 +8,18 @@ const fileSchema = new schema(
       type: String,
       required: true,
     },
+    fileTitle: {
+      type: String,
+    },
+    fileAlbum: {
+      type: String,
+    },
+    fileArtist: {
+      type: String,
+    },
+    filePerformer: {
+      type: String,
+    },
     driveId: {
       type: String,
       required: true,
