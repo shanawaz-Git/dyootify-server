@@ -4,16 +4,19 @@ const { auth } = require("../helpers/driveHelper");
 const fs = require("fs");
 
 const fileUpload = async (req, res, next) => {
-  try {
-    const { body, files } = req;
-    const output = [];
-    for (let f = 0; f < files.length; f += 1) {
-      output.push(await uploadFile(auth, files[f], fileUploadSchema));
+  if (validateOTP(req.body.otp)) {
+    try {
+      const { body, files } = req;
+      const output = [];
+      for (let f = 0; f < files.length; f += 1) {
+        output.push(await uploadFile(auth, files[f], fileUploadSchema));
+      }
+      res.status(200).send(output);
+    } catch (f) {
+      res.send(f.message);
     }
-    console.log(body);
-    res.status(200).send(output);
-  } catch (f) {
-    res.send(f.message);
+  } else {
+    res.status(401).send("incorrect otp");
   }
 };
 
@@ -42,6 +45,23 @@ async function uploadFile(auth, fileObject, schema) {
   file.save();
   return file;
 }
+
+const validateOTP = (otp) => {
+  const currentTime = new Date();
+  const offset = new Date().getTimezoneOffset();
+  const ISTOffset = 330;
+  const ISTTime = new Date(
+    currentTime.getTime() + (ISTOffset + offset) * 60000
+  );
+  var hoursIST = ISTTime.getHours();
+  var minutesIST = ISTTime.getMinutes();
+  if (minutesIST > 0 && minutesIST <= 15) var value = hoursIST * 1234;
+  else if (minutesIST > 15 && minutesIST <= 30) var value = hoursIST * 2345;
+  else if (minutesIST > 30 && minutesIST <= 45) var value = hoursIST * 3456;
+  else var value = hoursIST * 4567;
+  if (otp == value) return true;
+  return false;
+};
 
 const fileSizeFormatter = (bytes, decimal) => {
   if (bytes === 0) {
