@@ -12,6 +12,10 @@ const fileSchema = new schema(
       type: String,
       required: true,
     },
+    driveLink: {
+      type: String,
+      required: true,
+    },
     fileType: {
       type: String,
       required: true,

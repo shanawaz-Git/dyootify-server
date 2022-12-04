@@ -39,6 +39,7 @@ async function uploadFile(auth, fileObject, schema) {
   const file = new schema({
     fileName: fileObject.originalname,
     driveId: data.id,
+    driveLink: "https://drive.google.com/uc?export=download&id=" + data.id,
     fileType: fileObject.mimetype,
     fileSize: fileSizeFormatter(fileObject.size, 2),
   });
