@@ -12,7 +12,6 @@ const fileUpload = async (req, res, next) => {
       for (let f = 0; f < files.length; f += 1) {
         output.push(await uploadFile(auth, files[f], fileUploadSchema));
       }
-      console.log(output);
       res.status(200).send(output);
     } catch (f) {
       res.send(f.message);

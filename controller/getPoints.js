@@ -7,4 +7,12 @@ const open = (req, res, next) => {
     res.status(400).send(error.message);
   }
 };
-module.exports = { open };
+
+const welcome = (req, res, next) => {
+  try {
+    res.status(200).send("hello");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+module.exports = { open, welcome };
