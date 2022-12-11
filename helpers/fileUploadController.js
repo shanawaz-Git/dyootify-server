@@ -1,25 +1,11 @@
 "use strict";
 
 const fileUploadSchema = require("../modelSchema/fileUploadSchema");
-const { auth } = require("../helpers/driveHelper");
+const { auth } = require("./driveHelper");
 const jsmediatags = require("jsmediatags");
-
-const fileUpload = async (req, res, next) => {
-  if (validateOTP(req.body.otp)) {
-    try {
-      const { body, files } = req;
-      const output = [];
-      for (let f = 0; f < files.length; f += 1) {
-        output.push(await uploadFile(auth, files[f], fileUploadSchema));
-      }
-      res.status(200).send(output);
-    } catch (f) {
-      res.send(f.message);
-    }
-  } else {
-    res.status(401).send("incorrect otp");
-  }
-};
+// const btoaEncode = require("btoa");
+const { buffer } = require("stream/consumers");
+// const btoa = require("btoa");
 
 async function uploadFile(auth, fileObject, schema) {
   const stream = require("stream");
@@ -38,7 +24,21 @@ async function uploadFile(auth, fileObject, schema) {
     fields: "id,name",
   });
   let musicData = await awaitableJsmediatags(fileObject.buffer);
-
+  // const picData = musicData.tags.picture.data;
+  // const format = musicData.tags.picture.format;
+  // var base64String = "";
+  // for (var i = 0; i < musicData.tags.picture.data.length; i++) {
+  //   base64String += String.fromCharCode(musicData.tags.picture.data[i]);
+  // }
+  // // var btoa = Buffer.from(base64String).toString("base64");
+  // var btoa = btoaEncode(base64String);
+  // var imgUrl = "data:" + format + ";base64," + btoa + ")";
+  // document.querySelector("#cover").style.backgroundImage = `url(${base64})`;
+  // var blob = new Blob([new Uint8Array(musicData.tags.picture.data)], {
+  //   type: musicData.tags.picture.format,
+  // });
+  // var url = URL.createObjectURL(blob);
+  // console.log(url);
   const file = new schema({
     fileName: fileObject.originalname,
     fileTitle: musicData.tags.title,
@@ -47,6 +47,7 @@ async function uploadFile(auth, fileObject, schema) {
     filePerformer: musicData.tags.TPE1.data,
     driveId: data.id,
     driveLink: "https://drive.google.com/uc?export=download&id=" + data.id,
+    imageUrl: "Unable to get",
     fileType: fileObject.mimetype,
     fileSize: fileSizeFormatter(fileObject.size, 2),
   });
@@ -101,4 +102,4 @@ const fileSizeFormatter = (bytes, decimal) => {
   );
 };
 
-module.exports = { fileUpload };
+module.exports = { uploadFile, validateOTP };

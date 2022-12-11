@@ -28,6 +28,9 @@ const fileSchema = new schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String,
+    },
     fileType: {
       type: String,
       required: true,
