@@ -1,14 +1,18 @@
 const { uploadFile, validateOTP } = require("../helpers/fileUploadController");
 const fileUploadSchema = require("../modelSchema/fileUploadSchema");
 const { auth } = require("../helpers/driveHelper");
+const { language } = require("googleapis/build/src/apis/language");
 
 const fileUpload = async (req, res, next) => {
   if (validateOTP(req.body.otp)) {
     try {
-      const { body, files } = req;
+      const { body, files, lang } = req;
+      const language = req.body.lang;
       const output = [];
       for (let f = 0; f < files.length; f += 1) {
-        output.push(await uploadFile(auth, files[f], fileUploadSchema));
+        output.push(
+          await uploadFile(auth, files[f], fileUploadSchema, language)
+        );
       }
       res.status(200).send(output);
     } catch (f) {

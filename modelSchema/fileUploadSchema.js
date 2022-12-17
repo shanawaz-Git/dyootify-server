@@ -20,6 +20,9 @@ const fileSchema = new schema(
     filePerformer: {
       type: String,
     },
+    language: {
+      type: String,
+    },
     driveId: {
       type: String,
       required: true,
