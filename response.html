@@ -1,24 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./assests/style.css">
+	<title>Dyootify</title>
+	<!-- app.js
+    app.use('assets' , express.static('assets')) -->
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+body,
+html {
+  width: 100%;
+  /* height: 100%; */
+  background: #1c1d22;
+  font-family: "Varela Round", sans-serif;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 20vh;
+  list-style: none;
+}
+
+.menu li {
+  width: 155px;
+  height: 50px;
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+}
+a {
+  font-size: 25px;
+  color: #777;
+  text-decoration: none;
+  transition: all 0.45s;
+}
+
+.menu :hover {
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
+  animation: line 1s;
+}
+
+.menu:hover a {
+  color: #d94f5c;
+}
+
+.menu:not(:last-child) {
+  margin-right: 30px;
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
+
+.title h1 {
+  text-align: center;
+  color: #222;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  word-spacing: 3px;
+  letter-spacing: 12px;
+  color: #d94f5c;
+}
+
+h1 {
+  text-align: center;
+  margin: auto;
+  color: #484848;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  word-spacing: 3px;
+  cursor: pointer;
+}
+h1 span {
+  transition: 0.5s linear;
+}
+h1:hover span:nth-child(1) {
+  margin-right: 30px;
+}
+
+h1:hover span:nth-child(2) {
+  margin-left: 30px;
+}
+h1:hover span {
+  color: #d94f5c;
+  text-shadow: 0 0 10px #d94f5c, 0 0 20px #d94f5c, 0 0 40px #d94f5c;
+}
+
+/* Form container  */
+.form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 40vh;
+  color: #777;
+  gap: 2rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  box-sizing: border-box;
+  outline: 0;
+  background-color: #f1f1f1;
+}
+input[type="file"] {
+  display: none;
+  cursor: pointer;
+}
+.file {
+  padding: 14px 16px;
+  background-color: #f1f1f1;
+  border: none;
+  box-sizing: border-box; 
+  outline: 0;
+  cursor: pointer;
+}
+.file-input {
+  cursor: pointer;
+}
+select {
+  width: 20%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+
+}
+
+/* button */
+.form-submit-button {
+  display: inline-block;
+  background: #d94f5c;
+  border: 1px solid #ff4742;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #f1f1f1;
+  cursor: pointer;
+  font-size: 16px;
+  /* min-height: 40px; */
+  outline: 0;
+  padding: 16px 40px;
+  text-align: center;
+}
+
+.form-submit-button:hover,
+.form-submit-button:active {
+  background-color: initial;
+  color: #ff4742;
+}
+
+.form-submit-button:active {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .menu li {
+    width: 100px;
+    height: 50px;
+  }
+  a {
+    font-size: 12px;
+  }
+
+  .title h1 {
+    font-size: 16px;
+    text-transform: uppercase;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+  }
+  h1 {
+    font-size: 25px;
+    letter-spacing: 5px;
+    word-spacing: 1px;
+  }
+  /* Form container  */
+  .form_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 10px;
+    height: 40vh;
+    color: #777;
+    padding: 50px 10px 10px 10px;
+    gap: 1rem;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    box-sizing: unset;
+  }
+  input[type="file"] {
+    width: 100%;
+    padding: 2px 2px;
+    border: none;
+    box-sizing: border-box;
+  }
+  .file {
+    padding: 8px 12px;
+    font-size: 12px;
+   
+  }
+  select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .form-submit-button {
+    font-size: 12px;
+    min-height: 30px;
+    outline: 0;
+    padding: 8px 20px;
+    text-align: center;
+  }
+}
+
+	</style>
 </head>
 
 <body>
-	<form>
-		<input type="file" name="Files" required multiple /><br>
+	<!-- header -->
+	<nav>
+		<ul class="menu">
+			<li><a href="#!">Home</a></li>
+			<li><a href="#!">Downloads</a></li>
+			<li><a href="#!">Playlist</a></li>
+			<li><a href="#!">Songs</a></li>
+		</ul>
+	</nav>
+	<div class="title">
+
+	<!-- title -->
+	<h1>
+			"Music is the literature of Heart"
+	</h1>
+	</div>
+	<!-- Dyootify title -->
+	<div class="animated_Header">
+		<h1><span> MUSIC </span> WITH<span> DYOOTIFY </span></h1>
+	</div>
+
+	<form class="form_container">
+	
+		<div class="file">
+			<label class="file" for="file-input">Upload file
+				<input type="file" name="files" id="file-input" required />
+			</label>				
+		</div>
 		<select name="lang">
+			<option value="english">English</option>
 			<option value="tamil">Tamil</option>
 			<option value="telugu">Telugu</option>
 			<option value="hindi">Hindi</option>
-			<option value="english">English</option>
 		</select>
-		<input type="text" name="otp" placeholder="Enter OTP" required/><br>
-
-		<button type="submit">Submit</button><br>
+		<div>
+			<input type="number" name="otp" placeholder="Enter OTP" required /><br>
+		</div>
+		<button class="form-submit-button" type="submit">Submit</button><br>
 	</form>
+	<div class="title">
+		<h1>
+			Bring Music to life with Dyootify
+		</h1>
+	</div>
 </body>
 
 <script>
@@ -32,5 +312,6 @@
 		});
 	});
 </script>
+</body>
 
 </html>
