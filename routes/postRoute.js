@@ -1,7 +1,5 @@
 "use strict";
 const express = require("express");
-// const { upload } = require("../helpers/fileHelper");
-// const { fileUpload } = require("../controller/fileUploadController");
 const { fileUpload } = require("../controller/postPoints");
 const multer = require("multer");
 const postRoute = express.Router();

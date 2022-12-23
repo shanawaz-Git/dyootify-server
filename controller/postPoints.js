@@ -6,7 +6,7 @@ const { language } = require("googleapis/build/src/apis/language");
 const fileUpload = async (req, res, next) => {
   if (validateOTP(req.body.otp)) {
     try {
-      const { body, files, lang } = req;
+      const { files } = req;
       const language = req.body.lang;
       const output = [];
       for (let f = 0; f < files.length; f += 1) {

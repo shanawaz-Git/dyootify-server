@@ -9,21 +9,13 @@ const open = (req, res, next) => {
   }
 };
 
-const welcome = (req, res, next) => {
-  try {
-    res.status(200).send("hello");
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
-
 const getSongs = (req, res, next) => {
   try {
-    fileUploadSchema.find({}).then((ans) => {
+    fileUploadSchema.find({ language: req.body.language }).then((ans) => {
       res.status(200).send(ans);
     });
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
-module.exports = { open, welcome, getSongs };
+module.exports = { open, getSongs };
