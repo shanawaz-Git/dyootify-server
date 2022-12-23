@@ -11,9 +11,15 @@ const open = (req, res, next) => {
 
 const getSongs = (req, res, next) => {
   try {
-    fileUploadSchema.find({ language: req.body.language }).then((ans) => {
-      res.status(200).send(ans);
-    });
+    if (req.body.language == "all") {
+      fileUploadSchema.find({}).then((ans) => {
+        res.status(200).send(ans);
+      });
+    } else {
+      fileUploadSchema.find({ language: req.body.language }).then((ans) => {
+        res.status(200).send(ans);
+      });
+    }
   } catch (error) {
     res.status(400).send(error.message);
   }
