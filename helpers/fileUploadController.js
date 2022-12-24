@@ -24,21 +24,28 @@ async function uploadFile(auth, fileObject, schema, lang) {
     fields: "id,name",
   });
   let musicData = await awaitableJsmediatags(fileObject.buffer);
-  // const picData = musicData.tags.picture.data;
-  // const format = musicData.tags.picture.format;
-  // var base64String = "";
-  // for (var i = 0; i < musicData.tags.picture.data.length; i++) {
-  //   base64String += String.fromCharCode(musicData.tags.picture.data[i]);
-  // }
-  // // var btoa = Buffer.from(base64String).toString("base64");
-  // var btoa = btoaEncode(base64String);
-  // var imgUrl = "data:" + format + ";base64," + btoa + ")";
-  // document.querySelector("#cover").style.backgroundImage = `url(${base64})`;
-  // var blob = new Blob([new Uint8Array(musicData.tags.picture.data)], {
-  //   type: musicData.tags.picture.format,
-  // });
-  // var url = URL.createObjectURL(blob);
-  // console.log(url);
+  let cover = musicData.tags.picture;
+  let imgUrl;
+  if (cover) {
+    const coverBuffer = Buffer.from(cover.data);
+    const imagebufferStream = new stream.PassThrough();
+    imagebufferStream.end(coverBuffer);
+    const imageName = musicData.tags.picture.description;
+    const { data } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: cover.format,
+        body: imagebufferStream,
+      },
+      requestBody: {
+        name: imageName,
+        parents: ["1VjUyCf_PxELdzaCL_Qz1RGkxDWN8I_oF"],
+      },
+      fields: "id,name",
+    });
+    imgUrl = "https://drive.google.com/uc?export=download&id=" + data.id;
+  } else {
+    imgUrl = "No cover art image found";
+  }
   const file = new schema({
     fileName: fileObject.originalname,
     fileTitle: musicData.tags.title,
@@ -48,7 +55,7 @@ async function uploadFile(auth, fileObject, schema, lang) {
     language: lang,
     driveId: data.id,
     driveLink: "https://drive.google.com/uc?export=download&id=" + data.id,
-    imageUrl: "Unable to get",
+    imageUrl: imgUrl,
     fileType: fileObject.mimetype,
     fileSize: fileSizeFormatter(fileObject.size, 2),
   });
