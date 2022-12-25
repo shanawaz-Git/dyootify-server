@@ -11,7 +11,7 @@ const open = (req, res, next) => {
 
 const getSongs = (req, res, next) => {
   try {
-    if (!req.headers.language) {
+    if (!req.headers.language || req.headers.language == "all") {
       fileUploadSchema.find({}).then((ans) => {
         res.status(200).send(ans);
       });
