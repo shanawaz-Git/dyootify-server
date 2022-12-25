@@ -303,12 +303,25 @@ select {
 <script>
 	const formElem = document.querySelector('form');
 	formElem.addEventListener('submit', async (e) => {
-		console.log("form submitted")
 		e.preventDefault();
 		await fetch('/post/fileUpload', {
 			method: 'POST',
 			body: new FormData(formElem),
-		});
+		}).then(response => {
+    if(response.status==200){
+      alert("Heyy! File uploaded to drive");
+      formElem.reset();
+    }
+    return response.json();
+  })
+  .then(data => {
+    if(data=="incorrect OTP"){
+    alert("Oh oh.. "+data+", please enter a valid OTP");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+  });
 	});
 </script>
 </body>

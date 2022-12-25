@@ -14,12 +14,12 @@ const fileUpload = async (req, res, next) => {
           await uploadFile(auth, files[f], fileUploadSchema, language)
         );
       }
-      res.status(200).send(output);
+      res.status(200).json(output);
     } catch (f) {
       res.send(f.message);
     }
   } else {
-    res.status(401).send("incorrect otp");
+    res.status(401).json("incorrect OTP");
   }
 };
 
