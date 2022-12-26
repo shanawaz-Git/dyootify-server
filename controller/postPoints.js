@@ -8,10 +8,11 @@ const fileUpload = async (req, res, next) => {
     try {
       const { files } = req;
       const language = req.body.lang;
+      const category = req.body.cat;
       const output = [];
       for (let f = 0; f < files.length; f += 1) {
         output.push(
-          await uploadFile(auth, files[f], fileUploadSchema, language)
+          await uploadFile(auth, files[f], fileUploadSchema, language, category)
         );
       }
       res.status(200).json(output);

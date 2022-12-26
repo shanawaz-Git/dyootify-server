@@ -7,7 +7,7 @@ const jsmediatags = require("jsmediatags");
 const { buffer } = require("stream/consumers");
 // const btoa = require("btoa");
 
-async function uploadFile(auth, fileObject, schema, lang) {
+async function uploadFile(auth, fileObject, schema, lang, cat) {
   const stream = require("stream");
   const { google } = require("googleapis");
   const bufferStream = new stream.PassThrough();
@@ -53,6 +53,7 @@ async function uploadFile(auth, fileObject, schema, lang) {
     fileArtist: musicData.tags.artist,
     filePerformer: musicData.tags.TPE1.data,
     language: lang,
+    category: cat,
     driveId: data.id,
     driveLink: "https://drive.google.com/uc?export=download&id=" + data.id,
     imageUrl: imgUrl,

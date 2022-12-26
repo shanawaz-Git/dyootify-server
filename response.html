@@ -124,7 +124,14 @@ h1:hover span {
   color: #777;
   gap: 2rem;
 }
-
+input[type="text"] {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  box-sizing: border-box;
+  outline: 0;
+  background-color: #f1f1f1;
+}
 input[type="number"] {
   width: 100%;
   padding: 16px 20px;
@@ -218,7 +225,12 @@ select {
     padding: 50px 10px 10px 10px;
     gap: 1rem;
   }
-
+  input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    box-sizing: unset;
+  }
   input[type="number"] {
     width: 100%;
     padding: 8px 10px;
@@ -289,6 +301,9 @@ select {
 			<option value="hindi">Hindi</option>
 		</select>
 		<div>
+			<input type="text" name="cat" placeholder="U1 Drugs"  /><br>
+		</div>
+    <div>
 			<input type="number" name="otp" placeholder="Enter OTP" required /><br>
 		</div>
 		<button class="form-submit-button" type="submit">Submit</button><br>

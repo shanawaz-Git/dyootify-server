@@ -23,6 +23,9 @@ const fileSchema = new schema(
     language: {
       type: String,
     },
+    category: {
+      type: String,
+    },
     driveId: {
       type: String,
       required: true,
