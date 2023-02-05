@@ -24,4 +24,12 @@ const fileUpload = async (req, res, next) => {
   }
 };
 
-module.exports = { fileUpload };
+const nodeSNOW = async (req, res, next) => {
+  try {
+    res.status(200).send(req.body.data + "\ntesting");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+module.exports = { fileUpload, nodeSNOW };
