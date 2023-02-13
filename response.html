@@ -121,8 +121,30 @@ main {
 }
 
 .bird-anim:nth-child(2) {
-  animation: bird2 30s linear infinite forwards;
+  animation: bird2 40s linear infinite forwards;
   animation-delay: 3s;
+  z-index: -1;
+}
+
+.bird-anim:nth-child(3) {
+  animation: bird3 15s linear infinite forwards;
+  animation-delay: 5s;
+}
+
+.bird-anim:nth-child(4) {
+  animation: bird4 20s linear infinite forwards;
+  animation-delay: 7s;
+}
+
+.bird-anim:nth-child(5) {
+  animation: bird5 25s linear infinite forwards;
+  animation-delay: 14s;
+}
+
+.bird-anim:nth-child(6) {
+  animation: bird6 30s linear infinite forwards;
+  animation-delay: 10s;
+  z-index: -1;
 }
 
 
@@ -203,6 +225,42 @@ main {
 
   100% {
     transform: translate3d(-100vw, -20px, -1000px) rotateY(10deg) rotateX(0deg);
+  }
+}
+
+@keyframes bird3 {
+  0% {
+    transform: translate3d(100vw, -50vh, 100px) rotateY(-5deg) rotateX(-20deg);
+  }
+  100% {
+    transform: translate3d(-100vw, -10vh, 100px) rotateY(-5deg) rotateX(-20deg);
+  }
+}
+
+@keyframes bird4 {
+  0% {
+    transform: translate3d(100vw, 30vh, 200px) rotateY(-5deg) rotateX(10deg);
+  }
+  100% {
+    transform: translate3d(-100vw, -30vh, 200px) rotateY(-5deg) rotateX(10deg);
+  }
+}
+
+@keyframes bird5 {
+  0%, 5% {
+    transform: translate3d(100vw, 30vh, 400px) rotateY(-15deg) rotateX(-10deg);
+  }
+  100% {
+    transform: translate3d(-100vw, 10vh, 400px) rotateY(-15deg) rotateX(-10deg);
+  }
+}
+
+@keyframes bird6 {
+  0%, 10% {
+    transform: translate3d(-100vw, 20vh, -500px) rotateY(15deg) rotateX(10deg);
+  }
+  100% {
+    transform: translate3d(100vw, 40vh, -800px) rotateY(5deg) rotateX(10deg);
   }
 }
 
@@ -445,12 +503,224 @@ select {
 }
 
 	</style>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<!-- header -->
+  <main>
+      <div class="container container-bird">
+        <div class="bird bird-anim">
+          <div class="bird-container">
+            <div class="wing wing-left">
+              <div class="wing-left-top"></div>
+            </div>
+            <div class="wing wing-right">
+              <div class="wing-right-top"></div>
+            </div>
+          </div>
+        </div>
+      <div class="bird bird-anim">
+        <div class="bird-container">
+          <div class="wing wing-left">
+            <div class="wing-left-top"></div>
+          </div>
+          <div class="wing wing-right">
+            <div class="wing-right-top"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
   
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bird bird-anim">
+    <div class="bird-container">
+      <div class="wing wing-left">
+        <div class="wing-left-top"></div>
+      </div>
+      <div class="wing wing-right">
+        <div class="wing-right-top"></div>
+      </div>
+    </div>
+  </div>
+    </main>
 	<nav>
 		<ul class="menu">
 			<li><a href="#!">Home</a></li>
@@ -497,29 +767,6 @@ select {
 			Bring Music to life with Dyootify
 		</h1>
 	</div>
-  <main>
-      <div class="container container-bird">
-        <div class="bird bird-anim">
-          <div class="bird-container">
-            <div class="wing wing-left">
-              <div class="wing-left-top"></div>
-            </div>
-            <div class="wing wing-right">
-              <div class="wing-right-top"></div>
-            </div>
-          </div>
-        </div>
-      <div class="bird bird-anim">
-        <div class="bird-container">
-          <div class="wing wing-left">
-            <div class="wing-left-top"></div>
-          </div>
-          <div class="wing wing-right">
-            <div class="wing-right-top"></div>
-          </div>
-        </div>
-      </div>
-    </main>
 </body>
 
 <script>
