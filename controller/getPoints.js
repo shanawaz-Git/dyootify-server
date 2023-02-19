@@ -27,9 +27,19 @@ const getSongs = (req, res, next) => {
 
 const nodeSNOW = async (req, res, next) => {
   try {
+    var qarray = [
+      "Motivational Quotes",
+      "Encouraging Quotes",
+      "Leadership Quotes",
+      "Friendship Quotes",
+      "Funny Quotes",
+      "Gratitude Quotes",
+      "Quotes About Change",
+    ];
+    var rnd = Math.floor(Math.random() * qarray.length);
     var question = req.body.question;
     if (!question) {
-      question = "write a quote";
+      question = `write a quote on ${qarray[rnd - 1]}`;
     }
     var request = require("request");
     var options = {
